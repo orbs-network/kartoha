@@ -1,4 +1,8 @@
-# Prometheus metrics collector
+# Kartoha
+
+🥔 is a Prometheus config generator that helps to collect metrics from every virtual chain on Orbs blockchain.
+
+## Authentication settings
 
 Save your Graphana settings to `config.json` (follow example from `example-config/config.example.json`). You will need:
 
@@ -29,5 +33,5 @@ docker run -d --name prometheus --restart always -p 9090:9090 -v `pwd`/prometheu
 ## Monitoring demonet
 
 ```sh
-./index.js prometheus-config --config config.json --config topology.json --config ./example-config/vchains.example.json > prometheus.yml
+./index.js prometheus-config --config config.json --config ./example-config/demonet.example.json > prometheus.yml
 ```
