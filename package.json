@@ -1,0 +1,10 @@
+{
+  "name": "prometheus-collector",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Kirill Maksimov <kirill@orbs.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}
