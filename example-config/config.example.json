@@ -1,0 +1,7 @@
+{
+    "prometheus":  {
+        "url": "",
+        "username": "",
+        "password": ""
+    }
+}

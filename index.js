@@ -1,31 +1,30 @@
+#!/usr/bin/env node
+
 const { readFileSync } = require("fs");
-const { template, merge } = require("lodash");
+const { resolve } = require("path");
+const { template, merge, isEmpty, map } = require("lodash");
+const yargs = require("yargs");
 
-const render = template(readFileSync("./prometheus.template.yml").toString());
-const config = merge(require("./config.json"), {
-    nodes: [
-        {
-            name: "Orbs Demo 1",
-            host: "node1.demonet.orbs.com"
-        },
-        {
-            name: "Orbs Demo 2",
-            host: "node2.demonet.orbs.com"
-        },
-        {
-            name: "Orbs Demo 3",
-            host: "node3.demonet.orbs.com"
-        },
-        {
-            name: "Orbs Demo 4",
-            host: "node4.demonet.orbs.com"
-        }
-    ],
-    vchains: [
-        1000
-    ]
-});
+function generateConfig(files) {
+    const render = template(readFileSync("./prometheus.template.yml").toString());
+    const config = merge(...(map(files, (f) => require(resolve(f)))));
+    
+    if (isEmpty(config.nodes)) {
+        return console.error("Missing requred config field: nodes");
+    }
 
-const result = render(config);
+    if (isEmpty(config.vchains)) {
+        return console.error("Missing requred config field: vchains");
+    }
 
-console.log(result)
+    const result = render(config);    
+    console.log(result)    
+}
+
+yargs
+  .command("prometheus-config", "generates config for Prometheus", (yargs) => {
+    yargs.array("config").required("config")
+  }, (argv) => {
+    generateConfig(argv.config);
+  })
+  .argv

@@ -1,0 +1,23 @@
+{
+    "nodes": [
+        {
+            "name": "Orbs Demo 1",
+            "host": "node1.demonet.orbs.com"
+        },
+        {
+            "name": "Orbs Demo 2",
+            "host": "node2.demonet.orbs.com"
+        },
+        {
+            "name": "Orbs Demo 3",
+            "host": "node3.demonet.orbs.com"
+        },
+        {
+            "name": "Orbs Demo 4",
+            "host": "node4.demonet.orbs.com"
+        }
+    ],
+    "vchains": [
+        1000
+    ]
+}
