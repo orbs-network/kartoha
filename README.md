@@ -35,3 +35,7 @@ docker run -d --name prometheus --restart always -p 9090:9090 -v `pwd`/prometheu
 ```sh
 ./index.js prometheus-config --config config.json --config ./example-config/demonet.example.json > prometheus.yml
 ```
+
+## Grafana dashboard
+
+You can import the dashboard from here: `grafana/dashboard.json`
