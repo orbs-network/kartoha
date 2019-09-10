@@ -2,6 +2,52 @@
 
 🥔 is a Prometheus config generator that helps to collect metrics from every virtual chain on Orbs blockchain.
 
+## Usage
+
+The following steps generate `prometheus-config.yml`:
+
+* Create a new config file. Here we use `config.json`, but you can use any filename
+* Copy into your file the Prometheus authentication section template from `example-config/config.example.json`
+* Populate the Prometheus authentication settings
+* Copy into your file the network topology template from `example-config/demonet.example.json`
+* Populate `nodes` and `vchains` sections
+* Your file should have this structure:
+```
+{
+  "prometheus": {
+    "url": "some_url",
+    "username": "some_user",
+    "password": "<password_or_api_key>"
+  },
+  "nodes": [
+    {
+      "name": "Orbs Demo 1",
+      "host": "node1.demonet.orbs.com"
+    },
+    {
+      "name": "Orbs Demo 2",
+      "host": "node2.demonet.orbs.com"
+    },
+    {
+      "name": "Orbs Demo 3",
+      "host": "node3.demonet.orbs.com"
+    },
+    {
+      "name": "Orbs Demo 4",
+      "host": "node4.demonet.orbs.com"
+    }
+  ],
+  "vchains": [
+    1000
+  ]
+}
+``` 
+* Run:
+```sh
+./index.js prometheus-config --config config.json > prometheus.yml
+``` 
+* This generates `prometheus.yml`
+
 ## Authentication settings
 
 Save your Graphana settings to `config.json` (follow example from `example-config/config.example.json`). You will need:
