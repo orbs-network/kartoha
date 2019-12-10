@@ -1,7 +1,7 @@
 global:
-  scrape_interval: 15s
-  scrape_timeout: 15s
-  evaluation_interval: 15s
+  scrape_interval: 60s
+  scrape_timeout: 60s
+  evaluation_interval: 60s
 alerting:
   alertmanagers:
     - static_configs:
@@ -12,8 +12,8 @@ scrape_configs:
 #  <% _.forEach(nodes, (node) => { %>
 #  <% _.forEach(vchains, (vchain) => { %>
   - job_name: ${_.kebabCase(node.name)}-${vchain}
-    scrape_interval: 15s
-    scrape_timeout: 15s
+    scrape_interval: 60s
+    scrape_timeout: 60s
     metrics_path: /vchains/${vchain}/metrics.prometheus
     scheme: http
     static_configs:
