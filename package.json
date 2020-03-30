@@ -1,6 +1,6 @@
 {
-  "name": "prometheus-collector",
-  "version": "0.1.0",
+  "name": "kartoha",
+  "version": "0.2.0",
   "main": "index.js",
   "author": "Kirill Maksimov <kirill@orbs.com>",
   "license": "MIT",

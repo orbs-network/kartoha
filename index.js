@@ -24,7 +24,7 @@ function generateConfig(files) {
 }
 
 async function getTopology(ethereumEndpoint, topologyContractAddress, validatorRegistryContractAddress) {
-    const web3 = new Web3(new Web3.providers.HttpProvider("http://eth.orbs.com"));
+    const web3 = new Web3(new Web3.providers.HttpProvider(ethereumEndpoint));
 
     const validatorABI = require("./abi/validators.abi.json");
     const validators = new web3.eth.Contract(validatorABI, topologyContractAddress);
