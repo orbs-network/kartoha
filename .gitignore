@@ -2,3 +2,5 @@ node_modules
 config.json
 prometheus.yml
 topology.json
+
+.idea
